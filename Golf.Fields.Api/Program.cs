@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using Golf.Fields.Background;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -157,5 +158,20 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-app.Run();
+//app.Run();
 
+
+#region Run app
+
+var bgWorkers = new BackgroundWorkers();
+
+var isSuccess = bgWorkers.RunWorkersBeforeAppRun();
+
+if (isSuccess)
+{
+    app.Run();
+
+    bgWorkers.RunWorkersAfterAppStart();
+}
+
+#endregion

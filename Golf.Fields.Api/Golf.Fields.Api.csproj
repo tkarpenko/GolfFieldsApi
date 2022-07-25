@@ -31,5 +31,8 @@
     <ProjectReference Include="..\Golf.Fields.Shared\Golf.Fields.Shared.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Golf.Fields.Background\Golf.Fields.Background.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>
