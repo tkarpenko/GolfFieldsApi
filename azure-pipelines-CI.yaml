@@ -1,0 +1,67 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pr:
+  branches:
+    include:
+    - main
+    - develop
+
+pool:
+  vmImage: 'windows-latest'
+
+stages:
+- stage: CI
+  jobs:
+  - job: Build
+    displayName: Build
+    condition: succeeded()
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET 6 Core sdk'
+      inputs:
+        packageType: 'sdk'
+        version: '6.0.x'
+        includePreviewVersions: true
+    - task: DotNetCoreCLI@2
+      displayName: Build
+      inputs:
+        command: 'build'
+        projects: '**/Golf.Fields.Api/*.csproj'
+        arguments: --configuration Debug
+
+  - job: Publish
+    dependsOn: Build
+    displayName: Publish Artifacts
+    condition: succeeded()
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET 6 Core sdk'
+      inputs:
+        packageType: 'sdk'
+        version: '6.0.x'
+        includePreviewVersions: true
+    - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
+        command: 'build'
+        projects: '**/Golf.Fields.Api/*.csproj'
+        arguments: --configuration Release --output $(Build.ArtifactStagingDirectory)/publish_output
+
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/publish_output'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      displayName: Publish artifacts to staging directory
+      artifact: drop
