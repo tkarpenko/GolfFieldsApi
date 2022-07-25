@@ -4,9 +4,11 @@ The source code is the implamentation of a pod of the [microservice application]
 
 
 Azure DevOps CI
+
 ![ci](https://github.com/tkarpenko/GolfFieldsApi/blob/main/Azure%20DevOps%20CI.jpg)
 
 Azure DevOps CD
+
 ![cd](https://github.com/tkarpenko/GolfFieldsApi/blob/main/Azure%20DevOps%20CD.jpg)
 
 
