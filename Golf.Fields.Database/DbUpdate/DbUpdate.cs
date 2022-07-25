@@ -11,6 +11,8 @@ namespace Golf.Fields.Database
         {
             TcpConnection.GetTcpConnectionDetails();
 
+            Console.WriteLine($"TCP Conn det: {TcpConnection.TcpUsername}, {TcpConnection.TcpPassword}, {TcpConnection.TcpHost}, {TcpConnection.TcpPort}");
+
             var result = await TCP.GetVersionsFrom(new TcpGetParams
             {
                 Username = TcpConnection.TcpUsername,
@@ -19,6 +21,9 @@ namespace Golf.Fields.Database
                 Port = TcpConnection.TcpPort,
                 CurrentVersion = currentVersion
             });
+
+            if (result != null && !string.IsNullOrEmpty(result.Error))
+                Console.WriteLine($"TCP.GetSeeds Error: {result.Error}");
 
             var isSuccess = await FetchSqlScriptsAndExecute(result);
 
