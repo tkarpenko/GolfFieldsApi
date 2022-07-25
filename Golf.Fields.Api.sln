@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golf.Fields.Api", "Golf.Fie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golf.Fields.Services", "Golf.Fields.Services\Golf.Fields.Services.csproj", "{BB8727E5-8FC0-4769-ABCF-8D0A9648A458}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golf.Fields.Shared", "Golf.Fields.Shared\Golf.Fields.Shared.csproj", "{AC1C27AE-6F81-40CA-A122-8D42AA0CC98B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golf.Fields.Database", "Golf.Fields.Database\Golf.Fields.Database.csproj", "{A84F3515-8FE7-4DB9-BE66-5688E96135EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{BB8727E5-8FC0-4769-ABCF-8D0A9648A458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB8727E5-8FC0-4769-ABCF-8D0A9648A458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB8727E5-8FC0-4769-ABCF-8D0A9648A458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1C27AE-6F81-40CA-A122-8D42AA0CC98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1C27AE-6F81-40CA-A122-8D42AA0CC98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1C27AE-6F81-40CA-A122-8D42AA0CC98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1C27AE-6F81-40CA-A122-8D42AA0CC98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84F3515-8FE7-4DB9-BE66-5688E96135EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84F3515-8FE7-4DB9-BE66-5688E96135EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84F3515-8FE7-4DB9-BE66-5688E96135EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84F3515-8FE7-4DB9-BE66-5688E96135EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

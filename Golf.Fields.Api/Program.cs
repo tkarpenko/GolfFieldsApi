@@ -11,6 +11,10 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 var builder = WebApplication.CreateBuilder(args);
 
 
+//Environment.SetEnvironmentVariable("DB_HOST", "localhost");
+//Environment.SetEnvironmentVariable("TCP_HOST", "localhost");
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
