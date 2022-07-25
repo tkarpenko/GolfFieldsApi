@@ -21,7 +21,7 @@ To enrich API endpoints do the following:
 * ```> sh Install.sh```
 * ```> kubectl get pods --namespace golf-fields-api```
 * wait till a pod will have status running
-
+img
 * then run a command
 * ```> kubectl port-forward service/golf-fields-api-service --namespace golf-fields-api 5000:5000```
 * open Postman
