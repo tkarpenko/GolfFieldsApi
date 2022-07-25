@@ -10,22 +10,7 @@ namespace Golf.Fields.Api;
 [Authorize]
 public class UserController : ControllerBase
 {
-    [AllowAnonymous]
-    [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
-    {
-        var Summaries = new string[] { "Hot" };
-
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
-    }
-
-
+    
     [AllowAnonymous]
     [HttpPost("[action]")]
     public IActionResult Auth([FromBody] AuthModel model)

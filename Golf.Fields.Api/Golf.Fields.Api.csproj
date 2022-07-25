@@ -35,4 +35,8 @@
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Golf.Fields.Api.Tests" />
+  </ItemGroup>
 </Project>
