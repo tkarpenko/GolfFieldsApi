@@ -15,6 +15,8 @@ namespace Golf.Fields.Database
 
                 await CreateDb();
 
+                Console.WriteLine($"TCP Conn det: {TcpConnection.TcpUsername}, {TcpConnection.TcpPassword}, {TcpConnection.TcpHost}, {TcpConnection.TcpPort}");
+
                 var result = await TCP.GetSeeds(new TcpGetParams
                 {
                     Username = TcpConnection.TcpUsername,
@@ -22,6 +24,9 @@ namespace Golf.Fields.Database
                     Server = TcpConnection.TcpHost,
                     Port = TcpConnection.TcpPort,
                 });
+
+                if (result != null && !string.IsNullOrEmpty(result.Error))
+                    Console.WriteLine($"TCP.GetSeeds Error: {result.Error}");
 
                 var isSuccess = await FetchSqlScriptsAndExecute(result, isSeeding: true);
 

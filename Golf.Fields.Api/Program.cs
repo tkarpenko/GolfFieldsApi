@@ -158,20 +158,20 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
-//app.Run();
+app.Run();
 
 
-#region Run app
+//#region Run app
 
-var bgWorkers = new BackgroundWorkers();
+//var bgWorkers = new BackgroundWorkers();
 
-var isSuccess = bgWorkers.RunWorkersBeforeAppRun();
+//var isSuccess = bgWorkers.RunWorkersBeforeAppRun();
 
-if (isSuccess)
-{
-    app.Run();
+//if (isSuccess)
+//{
+//    app.Run();
 
-    bgWorkers.RunWorkersAfterAppStart();
-}
+//    bgWorkers.RunWorkersAfterAppStart();
+//}
 
-#endregion
+//#endregion

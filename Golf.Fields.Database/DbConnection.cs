@@ -26,6 +26,8 @@ namespace Golf.Fields.Database
                 connectionString = AppSettingsJson.GetSqlServerConnString(isDbCreating);
             }
 
+            Console.WriteLine($"DB connection str: {connectionString}");
+
             var connection = new SqlConnection(connectionString);
 
             if (connection == null)
