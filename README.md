@@ -2,6 +2,8 @@
 
 The source code is the implamentation of a pod of the [microservice application](https://github.com/tkarpenko/MicroserviceWithKubernetes).
 
+![cd](https://github.com/tkarpenko/GolfFieldsApi/blob/main/pod.jpg)
+
 
 Azure DevOps CI
 
