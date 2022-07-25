@@ -146,9 +146,6 @@ app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
 
-//app.UseAuthorization();
-
-//app.MapControllers();
 
 app.UseEndpoints(endpoints =>
 {
@@ -157,8 +154,6 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 });
-
-//app.Run();
 
 
 #region Run app
