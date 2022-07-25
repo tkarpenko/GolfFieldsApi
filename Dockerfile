@@ -11,11 +11,8 @@ USER appuser
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /src
-# COPY ["WebApiPod.csproj", "./"]
 COPY . .
 RUN dotnet restore
-# RUN dotnet restore "WebApiPod.csproj"
-# COPY . .
 WORKDIR "/src/."
 RUN dotnet build "Golf.Fields.Api/Golf.Fields.Api.csproj" -c Release -o /app/build
 
