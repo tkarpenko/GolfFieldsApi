@@ -21,9 +21,24 @@ public class UserController : ControllerBase
             var token = secSvc.Authenticate(model.Phone);
 
             if (token == null || string.IsNullOrWhiteSpace(token.BearerToken))
-                    return Unauthorized();
+               return Unauthorized();
 
             return Ok(token);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+        }
+
+    }
+
+    [AllowAnonymous]
+    [HttpGet("TestGet")]
+    public IActionResult TestGet()
+    {
+        try
+        {
+            return Ok("token text");
         }
         catch (Exception ex)
         {
