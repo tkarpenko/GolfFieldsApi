@@ -16,6 +16,15 @@ var builder = WebApplication.CreateBuilder(args);
 //Environment.SetEnvironmentVariable("TCP_HOST", "localhost");
 
 
+builder.Services.AddCors(options =>
+    options.AddPolicy("FRONTEND_CORS",
+        options => options
+            .WithOrigins(new string[] { "http://localhost:3000", "http://localhost:8080" })
+            .AllowAnyHeader()
+    )
+);
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -29,7 +38,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1.0", new OpenApiInfo() { Title = "Web API", Version = "v1.0" });
-    // c.IncludeXmlComments(@"Golf.Fields.Api.xml");
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
@@ -125,6 +133,8 @@ builder.Services.AddAuthentication(options =>
 
 
 var app = builder.Build();
+
+app.UseCors("FRONTEND_CORS");
 
 if (app.Environment.IsDevelopment())
 {
